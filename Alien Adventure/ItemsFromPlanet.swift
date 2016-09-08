@@ -9,7 +9,21 @@
 extension Hero {
     
     func itemsFromPlanet(inventory: [UDItem], planet: String) -> [UDItem] {
-        return [UDItem]()
+        
+        var glindaItems : [UDItem] = []
+        
+        for x in inventory {
+            for value in x.historicalData.values {
+                if (String(value) == planet){
+                    glindaItems.append(x)
+                }
+            }
+        }
+        
+
+        
+        return glindaItems
+        
     }
     
 }

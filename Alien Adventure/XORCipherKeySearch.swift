@@ -27,12 +27,15 @@ extension Hero {
             
             for character in encryptedString {
                 // ADD CODE: perform decryption
+                let decryptedCharacter = character ^ x
+                decrypted.append(decryptedCharacter)
                 print(character)
             }
             
             if let decryptedString = String(bytes: decrypted,
                 encoding: NSUTF8StringEncoding) where decryptedString == "udacity" {
                     // ADD CODE: found match, now what?
+                key = x 
             }
         }
         

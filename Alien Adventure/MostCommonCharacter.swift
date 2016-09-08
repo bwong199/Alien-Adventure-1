@@ -9,6 +9,34 @@
 extension Hero {
     
     func mostCommonCharacter(inventory: [UDItem]) -> Character? {
-        return nil
+        var largestNumberCharacter: Character?
+        var largestCharacterCount = 0
+        var currentCharacterCount = 0
+        var characters: [Character] = []
+        if inventory.isEmpty {
+            return nil
+        } else {
+            for item in inventory {
+                for char in item.name.lowercaseString.characters {
+                    characters.append(char)
+                }
+            }
+        }
+        let sortedCharacters  = characters.sort()
+        var currentCharacter = sortedCharacters[0]
+        //print(sortedCharacters)
+        for character in sortedCharacters {
+            if currentCharacter == character {
+                currentCharacterCount++
+                if currentCharacterCount > largestCharacterCount {
+                    largestCharacterCount = currentCharacterCount
+                    largestNumberCharacter = character
+                }
+            } else {
+                currentCharacterCount = 1
+                currentCharacter = character
+            }
+        }
+        return largestNumberCharacter
     }
 }

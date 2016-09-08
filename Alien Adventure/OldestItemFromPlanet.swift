@@ -9,8 +9,42 @@
 extension Hero {
     
     func oldestItemFromPlanet(inventory: [UDItem], planet: String) -> UDItem? {
-        return nil
+        
+        var glindaItems : [UDItem] = []
+        
+        var oldestItem : UDItem?
+        
+        for x in inventory {
+            print("ITEMS " + String(x.historicalData))
+            for value in x.historicalData.values {
+                //                print("\(value)")
+                if (String(value) == planet){
+                    glindaItems.append(x)
+                }
+            }
+        }
+        
+        for y in glindaItems {
+            //            print("ITEMS " + String(x.historicalData))
+            
+            var oldestItemAge = 0
+            
+            if let itemAge = y.historicalData["CarbonAge"] as? Int {
+                if itemAge > oldestItemAge {
+                    oldestItemAge = itemAge
+                    oldestItem = y
+                }
+            }
+        }
+        
+        
+        return oldestItem
     }
+    
+    
+    
+    
+    
     
 }
 
