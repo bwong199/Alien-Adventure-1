@@ -14,7 +14,8 @@ class Badge: SKSpriteNode {
     
     init(requestType: UDRequestType) {
         self.requestType = requestType
-        super.init(texture: nil, color: UIColor.clearColor(), size: CGSizeMake(48, 48))
+         let badge = SKTexture(imageNamed: "BadgeMagenta")
+        super.init(texture: badge, color: UIColor.clearColor(), size: CGSizeMake(48, 48))
     }
 
     required init?(coder aDecoder: NSCoder) {
